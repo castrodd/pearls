@@ -3,9 +3,13 @@
 # and with just a few dozen bytes of extra space.
 
 def rotate(vector, spaces)
-  vector[0..(spaces-1)] = vector[0..(spaces-1)].reverse!
-  vector[spaces..(vector.length-1)] = vector[spaces..(vector.length-1)].reverse!
-  vector.reverse!
+  if spaces < vector.length && spaces > 0
+    vector[0..(spaces-1)] = vector[0..(spaces-1)].reverse!
+    vector[spaces..(vector.length-1)] = vector[spaces..(vector.length-1)].reverse!
+    vector.reverse!
+  else
+    nil
+  end
 end
 
 def test_vector
