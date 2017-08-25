@@ -3,6 +3,15 @@
 
 def binary_search(target, array)
 
+  # Check for empty array and one-element array
+  if array.length == 0
+    return "Error: element not in array."
+  elsif array.length == 1 && array[0] != target
+    return "Error: element not in array."
+  elsif array.length == 1 && array[0] == target
+    return 0
+  end
+
   # Initialize low and high values
   min = 0
   max = array.length - 1
@@ -40,6 +49,7 @@ def test_binary_search()
   puts binary_search(5, [1,5,6,7,8]) == 1
   puts binary_search(5, [2,3,5,6]) == 2
   puts binary_search(5, [2,3,4,6,7,8]) == "Error: element not in array."
+  puts binary_search(5, []) == "Error: element not in array."
 end
 
 test_binary_search
