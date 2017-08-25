@@ -7,7 +7,7 @@ def binary_search(target, array)
   min = 0
   max = array.length - 1
 
-  # Loop through and reduce range
+  # Loop through and reduce range until target found or range is 0
   not_done = true
   while not_done
     mid = (max + min)/2
@@ -19,6 +19,8 @@ def binary_search(target, array)
       return max
     elsif target == array[mid]
       return mid
+    elsif max - min <= 1
+      return "Error: element not in array."
     elsif target > array[min] && target < array[mid]
       max = mid
     elsif target > array[mid] && target < array[max]
@@ -37,6 +39,7 @@ def test_binary_search()
   puts binary_search(5, [1,3,5,7,9,21]) == 2
   puts binary_search(5, [1,5,6,7,8]) == 1
   puts binary_search(5, [2,3,5,6]) == 2
+  puts binary_search(5, [2,3,4,6,7,8]) == "Error: element not in array."
 end
 
 test_binary_search
