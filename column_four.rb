@@ -50,6 +50,8 @@ def test_binary_search()
   puts binary_search(5, [2,3,5,6]) == 2
   puts binary_search(5, [2,3,4,6,7,8]) == "Error: element not in array."
   puts binary_search(5, []) == "Error: element not in array."
+  puts binary_search(5, [1]) == "Error: element not in array."
+  puts binary_search(5, [5]) == 0
 end
 
 test_binary_search
