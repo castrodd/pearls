@@ -29,6 +29,12 @@ int fnumbers()
 }
 
 int main(void) {
+  float dtime = 0;
+  float ftime = 0;
+
+  for (int i=0; i < 100; i++)
+  {
+
   auto start = std::chrono::steady_clock::now();
 
   double one = dnumbers();
@@ -43,8 +49,8 @@ int main(void) {
   auto end = std::chrono::steady_clock::now();
   // Store the time difference between start and end
   auto diff = end - start;
-  std::cout << "Double time " << std::endl;
-  std::cout << std::chrono::duration <float, std::milli> (diff).count()*1000 << " ns" << std::endl;
+
+  dtime += std::chrono::duration <float, std::milli> (diff).count();
 
 
   auto starttwo = std::chrono::steady_clock::now();
@@ -62,7 +68,13 @@ int main(void) {
   auto endtwo = std::chrono::steady_clock::now();
   // Store the time difference between start and end
   auto difftwo = endtwo - starttwo;
-  std::cout << "Single time " << std::endl;
-  std::cout << std::chrono::duration <float, std::milli> (difftwo).count()*1000 << " ns" << std::endl;
 
+  ftime += std::chrono::duration <float, std::milli> (difftwo).count();
+
+  }
+  std::cout << "Double time " << std::endl;
+  std::cout << dtime*10 << " ns" << std::endl;
+  std::cout << "Single time " << std::endl;
+  std::cout << ftime*10 << " ns" << std::endl;
+  return 0;
 }
