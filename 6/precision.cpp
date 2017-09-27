@@ -73,8 +73,8 @@ int main(void) {
 
   }
   std::cout << "Double time " << std::endl;
-  std::cout << dtime*10 << " ns" << std::endl;
+  std::cout << dtime*10 << " ms" << std::endl;
   std::cout << "Single time " << std::endl;
-  std::cout << ftime*10 << " ns" << std::endl;
+  std::cout << ftime*10 << " ms" << std::endl;
   return 0;
 }
