@@ -1,14 +1,13 @@
 # Given an array of integers, find the maximum output of any subvector.
-# Version 1 (O(n^3))
+# Version 2 (O(n^2))
 
 def vector(arr)
   maxsofar = 0
-  (0..arr.length-1).each do |index|
-    (index..arr.length-1).each do |subindex|
-      sum = 0
-      (index..subindex).each do |ele|
-        sum += arr[ele]
-      end
+  n = arr.length - 1
+  (0..n).each do |index|
+    sum = 0
+    (index..n).each do |subindex|
+      sum += arr[subindex]
       maxsofar = sum if sum > maxsofar
     end
   end
