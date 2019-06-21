@@ -2,6 +2,7 @@ from typing import List
 import random
 import time
 
+# Simple insertion with swap helper function
 def insertion_one(array: List[int]) -> List[int]:
     def swap(first: int, second: int) -> None:
        array[first], array[second] = array[second], array[first]
@@ -13,6 +14,7 @@ def insertion_one(array: List[int]) -> List[int]:
            j -= 1
     return array
 
+# Slight optimization with swap done inside function
 def insertion_two(array: List[int]) -> List[int]:
     for i, num in enumerate(array):
        j: int = i
@@ -23,6 +25,8 @@ def insertion_two(array: List[int]) -> List[int]:
            j -= 1
     return array
 
+# Another slight improvement with temp variable
+# set outside of while loop
 def insertion_three(array: List[int]) -> List[int]:
     for i, num in enumerate(array):
        j: int = i
